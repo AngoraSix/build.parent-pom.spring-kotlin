@@ -21,6 +21,8 @@ target/
 *.iml
 *.ipr
 
+### Kotlin ###
+
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/

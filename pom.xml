@@ -11,7 +11,7 @@
     </parent>
     <groupId>com.angorasix</groupId>
     <artifactId>parent-pom-kotlin</artifactId>
-    <version>0.1.0-SNAPSHOT</version>
+    <version>0.1.1-SNAPSHOT</version>
     <name>parent-pom-kotlin</name>
     <description>Angora Six Parent Pom for Java+Spring Projects using Kotlin</description>
     <packaging>pom</packaging>
@@ -24,10 +24,10 @@
         <maven.antrun.version>1.7</maven.antrun.version>
         <ktlint.version>0.37.2</ktlint.version>
         <maven.pmd.version>3.13.0</maven.pmd.version>
-        <maven.spotbugs.version>4.0.0</maven.spotbugs.version>
+        <maven.detekt.version>1.12.0</maven.detekt.version>
         <jacoco-coverage.version>0.8.5</jacoco-coverage.version>
         <asciidoctor.version>1.5.8</asciidoctor.version>
-        <springmockk.version>2.0.2</springmockk.version>
+        <springmockk.version>2.0.3</springmockk.version>
         <playtika.testcontainers.version>1.81</playtika.testcontainers.version>
 
         <jacoco-coverage.class.line.min>0.80</jacoco-coverage.class.line.min>
@@ -99,7 +99,6 @@
             <version>${springmockk.version}</version>
             <scope>test</scope>
         </dependency>
-
 
         <!-- documentation -->
         <dependency>
@@ -206,6 +205,9 @@
                         <exclude>**/dto/**/*.class</exclude>
                         <exclude>**/configurationproperty/**/*.class</exclude>
                         <exclude>**/*Application.class</exclude>
+                        <exclude>**/*ApplicationKt.class</exclude>
+                        <exclude>**/BeansKt*</exclude>
+                        <exclude>**/BeansInitializer.class</exclude>
                     </excludes>
                 </configuration>
             </plugin>
@@ -282,26 +284,26 @@
                 <dependencies>
                     <dependency>
                         <groupId>com.angorasix</groupId>
-                        <artifactId>build-tools</artifactId>
+                        <artifactId>build-tools-kotlin</artifactId>
                         <version>${project.version}</version>
                     </dependency>
                 </dependencies>
             </plugin>
-            <!-- Findbugs / Spotbugs -->
+            <!-- Findbugs / Spotbugs -> detekt -->
             <plugin>
-                <groupId>com.github.spotbugs</groupId>
-                <artifactId>spotbugs-maven-plugin</artifactId>
-                <version>${maven.spotbugs.version}</version>
-                <configuration>
-                    <effort>Max</effort>
-                    <threshold>Low</threshold>
-                    <xmlOutput>true</xmlOutput>
-                </configuration>
+                <groupId>com.github.ozsie</groupId>
+                <artifactId>detekt-maven-plugin</artifactId>
+                <version>${maven.detekt.version}</version>
                 <executions>
                     <execution>
+                        <phase>verify</phase>
                         <goals>
                             <goal>check</goal>
                         </goals>
+                        <configuration>
+                            <config>detekt.yml</config>
+                            <buildUponDefaultConfig>true</buildUponDefaultConfig>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
@@ -320,6 +322,9 @@
                         <configuration>
                             <backend>html</backend>
                             <doctype>book</doctype>
+                            <attributes>
+                                <snippets>${project.build.directory}/generated-snippets</snippets>
+                            </attributes>
                         </configuration>
                     </execution>
                 </executions>
@@ -370,6 +375,6 @@
     </profiles>
 
     <modules>
-        <module>build-tools</module>
+        <module>build-tools-kotlin</module>
     </modules>
 </project>
