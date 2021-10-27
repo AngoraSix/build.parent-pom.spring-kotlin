@@ -28,7 +28,7 @@
         <jacoco-coverage.version>0.8.5</jacoco-coverage.version>
         <asciidoctor.version>1.5.8</asciidoctor.version>
         <springmockk.version>2.0.3</springmockk.version>
-        <playtika.testcontainers.version>2.0.11</playtika.testcontainers.version>
+        <playtika.testcontainers.version>2.0.16</playtika.testcontainers.version>
 
         <jacoco-coverage.class.line.min>0.80</jacoco-coverage.class.line.min>
         <jacoco-coverage.class.branch.min>0.80</jacoco-coverage.class.branch.min>
