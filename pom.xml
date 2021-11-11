@@ -13,10 +13,11 @@
     <artifactId>parent-pom-kotlin</artifactId>
     <version>0.1.1-SNAPSHOT</version>
     <name>parent-pom-kotlin</name>
-    <description>Angora Six Parent Pom for Java+Spring Projects using Kotlin</description>
+    <description>Angora Six Parent Pom for Kotlin+Spring Projects</description>
     <packaging>pom</packaging>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>13</java.version>
         <kotlin.version>1.4.0</kotlin.version>
         <spring-cloud.version>2020.0.0</spring-cloud.version>
