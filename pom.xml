@@ -10,9 +10,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.angorasix</groupId>
-    <artifactId>parent-pom-kotlin</artifactId>
+    <artifactId>parent-pom-spring-kotlin</artifactId>
     <version>0.1.1-SNAPSHOT</version>
-    <name>parent-pom-kotlin</name>
+    <name>parent-pom-spring-kotlin</name>
     <description>Angora Six Parent Pom for Kotlin+Spring Projects</description>
     <packaging>pom</packaging>
 
