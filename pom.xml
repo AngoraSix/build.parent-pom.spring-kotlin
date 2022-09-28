@@ -22,14 +22,14 @@
         <kotlin.version>1.6.10</kotlin.version>
         <spring-cloud.version>2021.0.0</spring-cloud.version>
 
-        <maven.antrun.version>1.7</maven.antrun.version>
-        <ktlint.version>0.37.2</ktlint.version>
+        <jacoco.version>0.8.8</jacoco.version>
+        <maven.antrun.version>3.1.0</maven.antrun.version>
+        <ktlint.version>0.47.1</ktlint.version>
         <maven.pmd.version>3.13.0</maven.pmd.version>
-        <maven.detekt.version>1.12.0</maven.detekt.version>
-        <jacoco-coverage.version>0.8.5</jacoco-coverage.version>
+        <maven.detekt.version>1.21.0</maven.detekt.version>
         <asciidoctor.version>1.5.8</asciidoctor.version>
-        <springmockk.version>2.0.3</springmockk.version>
-        <playtika.testcontainers.version>2.0.16</playtika.testcontainers.version>
+        <springmockk.version>3.1.1</springmockk.version>
+        <playtika.testcontainers.version>2.2.6</playtika.testcontainers.version>
 
         <jacoco-coverage.class.line.min>0.80</jacoco-coverage.class.line.min>
         <jacoco-coverage.class.branch.min>0.80</jacoco-coverage.class.branch.min>
@@ -162,7 +162,7 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>${jacoco-coverage.version}</version>
+                <version>${jacoco.version}</version>
                 <executions>
                     <execution>
                         <id>default-prepare-agent</id>
@@ -224,34 +224,25 @@
                         <configuration>
                             <target name="ktlint">
                                 <java taskname="ktlint" dir="${basedir}" fork="true" failonerror="true"
-                                      classname="com.pinterest.ktlint.Main" classpathref="maven.plugin.classpath">
+                                  classname="com.pinterest.ktlint.Main" classpathref="maven.plugin.classpath">
                                     <arg value="src/**/*.kt"/>
-                                    <!-- to avoid generating report in checkstyle format remove following args: -->
-                                    <arg value="--reporter=plain"/>
-                                    <arg value="--reporter=checkstyle,output=${project.build.directory}/ktlint.xml"/>
-                                    <!-- see https://github.com/pinterest/ktlint#usage for more -->
                                 </java>
                             </target>
                         </configuration>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
+                        <goals><goal>run</goal></goals>
                     </execution>
                     <execution>
                         <id>ktlint-format</id>
-                        <phase>package</phase>
                         <configuration>
                             <target name="ktlint">
                                 <java taskname="ktlint" dir="${basedir}" fork="true" failonerror="true"
-                                      classname="com.pinterest.ktlint.Main" classpathref="maven.plugin.classpath">
+                                  classname="com.pinterest.ktlint.Main" classpathref="maven.plugin.classpath">
                                     <arg value="-F"/>
                                     <arg value="src/**/*.kt"/>
                                 </java>
                             </target>
                         </configuration>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
+                        <goals><goal>run</goal></goals>
                     </execution>
                 </executions>
                 <dependencies>
