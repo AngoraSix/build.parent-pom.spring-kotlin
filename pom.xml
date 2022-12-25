@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.6.2</version>
+        <version>3.0.1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.angorasix</groupId>
@@ -18,9 +18,9 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>13</java.version>
-        <kotlin.version>1.6.10</kotlin.version>
-        <spring-cloud.version>2021.0.0</spring-cloud.version>
+        <java.version>17</java.version>
+        <kotlin.version>1.7.22</kotlin.version>
+        <spring-cloud.version>2022.0.0</spring-cloud.version>
 
         <jacoco.version>0.8.8</jacoco.version>
         <maven.antrun.version>3.1.0</maven.antrun.version>
@@ -277,7 +277,7 @@
                 <dependencies>
                     <dependency>
                         <groupId>com.angorasix</groupId>
-                        <artifactId>build-tools-kotlin</artifactId>
+                        <artifactId>kotlin-spring-build-tools</artifactId>
                         <version>${project.version}</version>
                     </dependency>
                 </dependencies>
