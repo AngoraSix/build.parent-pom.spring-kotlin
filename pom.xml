@@ -11,7 +11,7 @@
     </parent>
     <groupId>com.angorasix</groupId>
     <artifactId>parent-pom-spring-kotlin</artifactId>
-    <version>0.1.1-SNAPSHOT</version>
+    <version>0.1.2-SNAPSHOT</version>
     <name>parent-pom-spring-kotlin</name>
     <description>Angora Six Parent Pom for Kotlin+Spring Projects</description>
     <packaging>pom</packaging>
