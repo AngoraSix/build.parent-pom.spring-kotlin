@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.angorasix</groupId>
     <artifactId>kotlin-spring-build-tools</artifactId>
-    <version>0.2.0</version>
+    <version>0.2.1</version>
     <name>parent-pom-kotlin-build-tools</name>
     <description>Angora Six Parent Pom Build Tools containing resources</description>
 </project>
