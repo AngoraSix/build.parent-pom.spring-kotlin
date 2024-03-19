@@ -6,4 +6,4 @@ on:
 
 jobs:
   build-test-artifact:
-    uses: AngoraSix/infra/.github/workflows/action-build-parent-maven@main
+    uses: AngoraSix/infra/.github/workflows/action-build-parent-maven.yml@main
