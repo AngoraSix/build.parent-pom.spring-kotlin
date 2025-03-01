@@ -6,7 +6,7 @@
 
   <groupId>com.angorasix</groupId>
   <artifactId>kotlin-spring-build-tools</artifactId>
-  <version>0.2.3-SNAPSHOT</version>
+  <version>0.2.3</version>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
