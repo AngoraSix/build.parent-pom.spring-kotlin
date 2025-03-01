@@ -6,7 +6,7 @@
 
   <groupId>com.angorasix</groupId>
   <artifactId>parent-pom-spring-kotlin</artifactId>
-  <version>0.2.2</version>
+  <version>0.2.3-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <parent>
@@ -24,7 +24,7 @@
 
     <jacoco.version>0.8.8</jacoco.version>
     <maven.antrun.version>3.1.0</maven.antrun.version>
-    <ktlint.version>0.47.1</ktlint.version>
+    <ktlint.version>1.5.0</ktlint.version>
     <maven.pmd.version>3.20.0</maven.pmd.version>
     <maven.detekt.version>1.21.0</maven.detekt.version>
     <asciidoctor.version>1.5.8</asciidoctor.version>
@@ -231,7 +231,7 @@
             <configuration>
               <target name="ktlint">
                 <java taskname="ktlint" dir="${basedir}" fork="true" failonerror="true"
-                  classname="com.pinterest.ktlint.Main" classpathref="maven.plugin.classpath">
+                  classpathref="maven.plugin.classpath" classname="com.pinterest.ktlint.Main">
                   <arg value="src/**/*.kt"/>
                 </java>
               </target>
@@ -245,7 +245,8 @@
             <configuration>
               <target name="ktlint">
                 <java taskname="ktlint" dir="${basedir}" fork="true" failonerror="true"
-                  classname="com.pinterest.ktlint.Main" classpathref="maven.plugin.classpath">
+                  classpathref="maven.plugin.classpath" classname="com.pinterest.ktlint.Main">
+                  <jvmarg value="--add-opens=java.base/java.lang=ALL-UNNAMED"/>
                   <arg value="-F"/>
                   <arg value="src/**/*.kt"/>
                 </java>
@@ -258,8 +259,8 @@
         </executions>
         <dependencies>
           <dependency>
-            <groupId>com.pinterest</groupId>
-            <artifactId>ktlint</artifactId>
+            <groupId>com.pinterest.ktlint</groupId>
+            <artifactId>ktlint-cli</artifactId>
             <version>${ktlint.version}</version>
           </dependency>
           <!-- additional 3rd party ruleset(s) can be specified here -->
@@ -289,7 +290,7 @@
           <dependency>
             <groupId>com.angorasix</groupId>
             <artifactId>kotlin-spring-build-tools</artifactId>
-            <version>0.2.2</version>
+            <version>0.2.3-SNAPSHOT</version>
           </dependency>
         </dependencies>
       </plugin>
