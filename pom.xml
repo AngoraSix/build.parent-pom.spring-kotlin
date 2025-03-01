@@ -6,7 +6,7 @@
 
   <groupId>com.angorasix</groupId>
   <artifactId>parent-pom-spring-kotlin</artifactId>
-  <version>0.2.3-SNAPSHOT</version>
+  <version>0.2.3</version>
   <packaging>pom</packaging>
 
   <parent>
@@ -290,7 +290,7 @@
           <dependency>
             <groupId>com.angorasix</groupId>
             <artifactId>kotlin-spring-build-tools</artifactId>
-            <version>0.2.3-SNAPSHOT</version>
+            <version>0.2.3</version>
           </dependency>
         </dependencies>
       </plugin>
