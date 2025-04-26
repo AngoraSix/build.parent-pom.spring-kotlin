@@ -6,7 +6,7 @@
 
   <groupId>com.angorasix</groupId>
   <artifactId>parent-pom-spring-kotlin</artifactId>
-  <version>0.3.2</version>
+  <version>0.3.3</version>
   <packaging>pom</packaging>
 
   <parent>
@@ -22,7 +22,9 @@
     <kotlin.version>2.1.0</kotlin.version>
     <spring-cloud.version>2024.0.0</spring-cloud.version>
 
-    <jacoco.version>0.8.8</jacoco.version>
+    <axon.version>4.11.1</axon.version>
+
+    <maven.jacoco.version>0.8.11</maven.jacoco.version>
     <maven.antrun.version>3.1.0</maven.antrun.version>
     <ktlint.version>1.5.0</ktlint.version>
     <maven.pmd.version>3.26.0</maven.pmd.version>
@@ -40,6 +42,32 @@
     <jacoco-coverage.class.line.min>0.80</jacoco-coverage.class.line.min>
     <jacoco-coverage.class.branch.min>0.80</jacoco-coverage.class.branch.min>
   </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>${spring-cloud.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.axonframework</groupId>
+        <artifactId>axon-bom</artifactId>
+        <version>${axon.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.playtika.testcontainers</groupId>
+        <artifactId>testcontainers-spring-boot-bom</artifactId>
+        <version>${playtika.testcontainers.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
   <dependencies>
     <!-- Spring Actuator for /info /health ... -->
@@ -121,7 +149,6 @@
       <artifactId>spring-boot-devtools</artifactId>
       <optional>true</optional>
     </dependency>
-
   </dependencies>
 
   <build>
@@ -169,12 +196,19 @@
       <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
-        <version>${jacoco.version}</version>
+        <version>${maven.jacoco.version}</version>
         <executions>
           <execution>
             <id>default-prepare-agent</id>
             <goals>
               <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>report</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>report</goal>
             </goals>
           </execution>
           <execution>
@@ -212,6 +246,8 @@
             <exclude>**/dto/*.class</exclude>
             <exclude>**/dto/**/*.class</exclude>
             <exclude>**/configurationproperty/**/*.class</exclude>
+            <exclude>**/infrastructure/**/constants/*.class</exclude>
+            <exclude>**/infrastructure/**/security/SecurityConfiguration.class</exclude>
             <exclude>**/*Application.class</exclude>
             <exclude>**/*ApplicationKt.class</exclude>
             <exclude>**/BeansKt*</exclude>
@@ -290,7 +326,7 @@
           <dependency>
             <groupId>com.angorasix</groupId>
             <artifactId>kotlin-spring-build-tools</artifactId>
-            <version>0.3.2</version>
+            <version>0.3.3</version>
           </dependency>
         </dependencies>
       </plugin>
