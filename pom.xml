@@ -6,7 +6,7 @@
 
   <groupId>com.angorasix</groupId>
   <artifactId>parent-pom-spring-kotlin</artifactId>
-  <version>0.3.3</version>
+  <version>0.3.4</version>
   <packaging>pom</packaging>
 
   <parent>
@@ -19,7 +19,6 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <java.version>21</java.version>
-    <kotlin.version>2.1.0</kotlin.version>
     <spring-cloud.version>2024.0.0</spring-cloud.version>
 
     <axon.version>4.11.1</axon.version>
@@ -326,7 +325,7 @@
           <dependency>
             <groupId>com.angorasix</groupId>
             <artifactId>kotlin-spring-build-tools</artifactId>
-            <version>0.3.3</version>
+            <version>0.3.4</version>
           </dependency>
         </dependencies>
       </plugin>
