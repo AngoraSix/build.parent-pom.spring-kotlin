@@ -6,7 +6,7 @@
 
   <groupId>com.angorasix</groupId>
   <artifactId>parent-pom-spring-kotlin</artifactId>
-  <version>0.3.5</version>
+  <version>0.3.6</version>
   <packaging>pom</packaging>
 
   <parent>
@@ -122,6 +122,11 @@
           <artifactId>mockito-core</artifactId>
         </exclusion>
       </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-test</artifactId>
+      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.jetbrains.kotlinx</groupId>
@@ -247,6 +252,7 @@
             <exclude>**/configurationproperty/**/*.class</exclude>
             <exclude>**/infrastructure/**/constants/*.class</exclude>
             <exclude>**/infrastructure/**/security/SecurityConfiguration.class</exclude>
+            <exclude>**/infrastructure/**/service/ServiceConfiguration.class</exclude>
             <exclude>**/*Application.class</exclude>
             <exclude>**/*ApplicationKt.class</exclude>
             <exclude>**/BeansKt*</exclude>
@@ -325,7 +331,7 @@
           <dependency>
             <groupId>com.angorasix</groupId>
             <artifactId>kotlin-spring-build-tools</artifactId>
-            <version>0.3.5</version>
+            <version>0.3.6</version>
           </dependency>
         </dependencies>
       </plugin>
